@@ -2443,3 +2443,674 @@ Processing by ArtworksController#index as */*
 Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.6ms)
 
 
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2292835721393257215)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCreateComments (20220630184846)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "create_comments" ("id" bigserial primary key, "user_id" integer, "artwork_id" integer, "body" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20220630184846_create_create_comments.rb:3
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_user_id" ON "comments"  ("user_id")[0m
+  ↳ db/migrate/20220630184846_create_create_comments.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2292835721393257215)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2292835721393257215)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCreateComments (20220630184846)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "user_id" integer NOT NULL, "artwork_id" integer NOT NULL, "body" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20220630184846_create_create_comments.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_user_id" ON "comments"  ("user_id")[0m
+  ↳ db/migrate/20220630184846_create_create_comments.rb:11
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_artwork_id" ON "comments"  ("artwork_id")[0m
+  ↳ db/migrate/20220630184846_create_create_comments.rb:12
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220630184846"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(2292835721393257215)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dianamc/.rbenv/versions/2.5.1/bin/annotate:25
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/comments" for ::1 at 2022-06-30 15:10:53 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dianamc/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8/lib/active_record/log_subscriber.rb:98
+Processing by CommentsController#index as */*
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/dianamc/Desktop/W6D3/Cool_app/app/models/comment.rb:24: syntax error, unexpected ':', expecting keyword_end
+    validates: :user_id, presence: true
+             ^
+/Users/dianamc/Desktop/W6D3/Cool_app/app/models/comment.rb:25: syntax error, unexpected ':', expecting keyword_end
+    validates: :artwork_id, presence: true
+             ^
+/Users/dianamc/Desktop/W6D3/Cool_app/app/models/comment.rb:26: syntax error, unexpected ':', expecting keyword_end
+    validates: :body, presence: true
+             ^):
+  
+app/models/comment.rb:24: syntax error, unexpected ':', expecting keyword_end
+app/models/comment.rb:25: syntax error, unexpected ':', expecting keyword_end
+app/models/comment.rb:26: syntax error, unexpected ':', expecting keyword_end
+app/controllers/comments_controller.rb:3:in `index'
+Started GET "/comments" for ::1 at 2022-06-30 15:11:19 -0400
+Processing by CommentsController#index as */*
+Completed 500 Internal Server Error in 137ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `comment_params' for #<CommentsController:0x000000011c4d4de8>
+Did you mean?  comments_params
+               comment_path):
+  
+app/controllers/comments_controller.rb:3:in `index'
+Started GET "/comments" for ::1 at 2022-06-30 15:11:37 -0400
+Processing by CommentsController#index as */*
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: comment):
+  
+app/controllers/comments_controller.rb:25:in `comment_params'
+app/controllers/comments_controller.rb:3:in `index'
+Started GET "/comments" for ::1 at 2022-06-30 15:12:32 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"1"}}
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+Completed 404 Not Found in 10ms (ActiveRecord: 6.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'={"user_id"=>"1"}):
+  
+app/controllers/comments_controller.rb:3:in `index'
+Started POST "/comments" for ::1 at 2022-06-30 15:13:13 -0400
+Processing by CommentsController#create as */*
+  Parameters: {"comment"=>{"user_id"=>"1", "artwork_id"=>"1", "body"=>"this is dope"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[36mComment Create (1.7ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["artwork_id", 1], ["body", "this is dope"], ["created_at", "2022-06-30 19:13:13.319233"], ["updated_at", "2022-06-30 19:13:13.319233"]]
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:10
+Completed 200 OK in 47ms (Views: 0.4ms | ActiveRecord: 9.0ms)
+
+
+Started POST "/comments" for ::1 at 2022-06-30 15:13:24 -0400
+Processing by CommentsController#create as */*
+  Parameters: {"comment"=>{"user_id"=>"1", "artwork_id"=>"2", "body"=>"burn this"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["artwork_id", 2], ["body", "burn this"], ["created_at", "2022-06-30 19:13:24.356557"], ["updated_at", "2022-06-30 19:13:24.356557"]]
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:10
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/comments" for ::1 at 2022-06-30 15:13:32 -0400
+Processing by CommentsController#create as */*
+  Parameters: {"comment"=>{"user_id"=>"2", "artwork_id"=>"1", "body"=>"take my money"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["artwork_id", 1], ["body", "take my money"], ["created_at", "2022-06-30 19:13:32.789973"], ["updated_at", "2022-06-30 19:13:32.789973"]]
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:10
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/comments" for ::1 at 2022-06-30 15:13:49 -0400
+Processing by CommentsController#create as */*
+  Parameters: {"comment"=>{"user_id"=>"2", "artwork_id"=>"3", "body"=>"my daughter paints better than this"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["artwork_id", 3], ["body", "my daughter paints better than this"], ["created_at", "2022-06-30 19:13:49.868024"], ["updated_at", "2022-06-30 19:13:49.868024"]]
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:10
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/comments" for ::1 at 2022-06-30 15:13:58 -0400
+Processing by CommentsController#create as */*
+  Parameters: {"comment"=>{"user_id"=>"2", "artwork_id"=>"1", "body"=>"please"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "artwork_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["artwork_id", 1], ["body", "please"], ["created_at", "2022-06-30 19:13:58.415226"], ["updated_at", "2022-06-30 19:13:58.415226"]]
+  ↳ app/controllers/comments_controller.rb:10
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:10
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/comments" for ::1 at 2022-06-30 15:14:11 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"1"}}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'={"user_id"=>"1"}):
+  
+app/controllers/comments_controller.rb:3:in `index'
+Started GET "/comments" for ::1 at 2022-06-30 15:14:54 -0400
+Processing by CommentsController#index as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: comment):
+  
+app/controllers/comments_controller.rb:25:in `comment_params'
+app/controllers/comments_controller.rb:3:in `index'
+Started GET "/comments" for ::1 at 2022-06-30 15:15:03 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"1"}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'={"user_id"=>"1"}):
+  
+app/controllers/comments_controller.rb:3:in `index'
+Started GET "/comments" for ::1 at 2022-06-30 15:15:12 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"1"}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:4
+Completed 200 OK in 11ms (Views: 5.6ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/comments" for ::1 at 2022-06-30 15:15:15 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"1"}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:4
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comments" for ::1 at 2022-06-30 15:15:43 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"1"}}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+Completed 404 Not Found in 10ms (ActiveRecord: 4.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'={"user_id"=>"1"}):
+  
+app/controllers/comments_controller.rb:3:in `index'
+Started GET "/comments" for ::1 at 2022-06-30 15:17:00 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"1"}}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+Completed 404 Not Found in 101141ms (ActiveRecord: 3.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'={"user_id"=>"1"}):
+  
+app/controllers/comments_controller.rb:4:in `index'
+Started GET "/comments" for ::1 at 2022-06-30 15:18:45 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"1"}}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+Completed 200 OK in 4371ms (Views: 0.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/comments" for ::1 at 2022-06-30 15:21:10 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"1"}}
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `find_all_by' for #<Class:0x000000010db569f0>
+Did you mean?  find_by):
+  
+app/controllers/comments_controller.rb:3:in `index'
+Started GET "/comments" for ::1 at 2022-06-30 15:21:35 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"1"}}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+Completed 200 OK in 16ms (Views: 5.4ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/comments" for ::1 at 2022-06-30 15:21:44 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"2"}}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/comments_controller.rb:4
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/comments" for ::1 at 2022-06-30 15:21:55 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"artwork_id"=>"1"}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/comments/5" for ::1 at 2022-06-30 15:24:52 -0400
+Processing by CommentsController#destroy as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:20
+  [1m[36mComment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/comments_controller.rb:20
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:20
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 4.6ms)
+
+
+Started DELETE "/comments" for ::1 at 2022-06-30 15:25:12 -0400
+  
+ActionController::RoutingError (No route matches [DELETE] "/comments"):
+  
+actionpack (5.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3.1) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3.1) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/comments" for ::1 at 2022-06-30 15:25:20 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"1"}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for ::1 at 2022-06-30 15:29:00 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 20ms (Views: 5.8ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/users?ckoo" for ::1 at 2022-06-30 15:34:43 -0400
+Processing by UsersController#index as */*
+  Parameters: {"ckoo"=>nil}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:44:in `user_params'
+app/controllers/users_controller.rb:3:in `index'
+Started GET "/users?username=cko" for ::1 at 2022-06-30 15:34:52 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"cko"}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:44:in `user_params'
+app/controllers/users_controller.rb:3:in `index'
+Started GET "/users?username=cko" for ::1 at 2022-06-30 15:35:02 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"cko"}
+Completed 400 Bad Request in 18604ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:45:in `user_params'
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/users?username=cko" for ::1 at 2022-06-30 15:38:16 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"cko"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 18ms (Views: 0.4ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/users?username=cko" for ::1 at 2022-06-30 15:40:30 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"cko"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (cko)[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.3ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "cko" does not exist
+LINE 1: SELECT "users".* FROM "users" WHERE (cko)
+                                             ^
+: SELECT "users".* FROM "users" WHERE (cko)):
+  
+app/controllers/users_controller.rb:10:in `index'
+Started GET "/users?username=ckoo13" for ::1 at 2022-06-30 15:40:47 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"ckoo13"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (ckoo13)[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "ckoo13" does not exist
+LINE 1: SELECT "users".* FROM "users" WHERE (ckoo13)
+                                             ^
+: SELECT "users".* FROM "users" WHERE (ckoo13)):
+  
+app/controllers/users_controller.rb:10:in `index'
+Started GET "/users?username=ckoo13" for ::1 at 2022-06-30 15:40:58 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"ckoo13"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users?ckoo" for ::1 at 2022-06-30 15:41:13 -0400
+Processing by UsersController#index as */*
+  Parameters: {"ckoo"=>nil}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 200 OK in 12ms (Views: 5.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/users?username=ckoo13" for ::1 at 2022-06-30 15:41:52 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"ckoo13"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (ckoo13)[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "ckoo13" does not exist
+LINE 1: SELECT "users".* FROM "users" WHERE (ckoo13)
+                                             ^
+: SELECT "users".* FROM "users" WHERE (ckoo13)):
+  
+app/controllers/users_controller.rb:10:in `index'
+Started GET "/users?username=ckoo13" for ::1 at 2022-06-30 15:42:12 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"ckoo13"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (ckoo13)[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 500 Internal Server Error in 49532ms (ActiveRecord: 1.4ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "ckoo13" does not exist
+LINE 1: SELECT "users".* FROM "users" WHERE (ckoo13)
+                                             ^
+: SELECT "users".* FROM "users" WHERE (ckoo13)):
+  
+app/controllers/users_controller.rb:10:in `index'
+Started GET "/users?ckoo" for ::1 at 2022-06-30 15:43:16 -0400
+Processing by UsersController#index as */*
+  Parameters: {"ckoo"=>nil}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 200 OK in 213352ms (Views: 6.7ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/users?ckoo=13" for ::1 at 2022-06-30 15:46:51 -0400
+Processing by UsersController#index as */*
+  Parameters: {"ckoo"=>"13"}
+Completed 500 Internal Server Error in 1298877ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users?ckoo=13" for ::1 at 2022-06-30 16:08:34 -0400
+  
+SyntaxError (/Users/dianamc/Desktop/W6D3/Cool_app/app/controllers/users_controller.rb:8: syntax error, unexpected keyword_else
+        else
+        ^~~~):
+  
+app/controllers/users_controller.rb:8: syntax error, unexpected keyword_else
+Started GET "/users?ckoo=13" for ::1 at 2022-06-30 16:08:49 -0400
+Processing by UsersController#index as */*
+  Parameters: {"ckoo"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 40097ms (Views: 0.9ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/users?ckoo=13&diana=9" for ::1 at 2022-06-30 16:09:50 -0400
+Processing by UsersController#index as */*
+  Parameters: {"ckoo"=>"13", "diana"=>"9"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 41628ms (Views: 0.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users?13ckoo=" for ::1 at 2022-06-30 16:20:06 -0400
+Processing by UsersController#index as */*
+  Parameters: {"13ckoo"=>""}
+Started GET "/users?username=ckoo13" for ::1 at 2022-06-30 16:36:44 -0400
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 998280ms (Views: 1.7ms | ActiveRecord: 6.0ms)
+
+
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"ckoo13"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 3162ms (Views: 0.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users?username=ckoo" for ::1 at 2022-06-30 16:36:57 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"ckoo"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username SIMILAR TO ckoo)[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.7ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "ckoo" does not exist
+LINE 1: ...LECT "users".* FROM "users" WHERE (username SIMILAR TO ckoo)
+                                                                  ^
+: SELECT "users".* FROM "users" WHERE (username SIMILAR TO ckoo)):
+  
+app/controllers/users_controller.rb:9:in `index'
+Started GET "/users?username=ckoo" for ::1 at 2022-06-30 16:37:18 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"ckoo"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.username SIMILAR TO ckoo)[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "ckoo" does not exist
+LINE 1: ...users".* FROM "users" WHERE (users.username SIMILAR TO ckoo)
+                                                                  ^
+: SELECT "users".* FROM "users" WHERE (users.username SIMILAR TO ckoo)):
+  
+app/controllers/users_controller.rb:9:in `index'
+Started GET "/users?username=ckoo" for ::1 at 2022-06-30 16:38:23 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"ckoo"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.username LIKE 'ckoo')[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 10ms (Views: 1.2ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/users?username=ckoo" for ::1 at 2022-06-30 16:38:35 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"ckoo"}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.username SIMILAR TO 'ckoo')[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 10ms (Views: 1.0ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/users?username=ckoo" for ::1 at 2022-06-30 16:39:27 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"ckoo"}
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE (users.username SIMILAR TO 'ckoo') LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+No template found for UsersController#index, rendering head :no_content
+Completed 204 No Content in 77ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/users?username=ckoo" for ::1 at 2022-06-30 16:39:49 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"ckoo"}
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE (users.username SIMILAR TO 'ckoo') LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 200 OK in 13ms (Views: 4.0ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/users?username=diana" for ::1 at 2022-06-30 16:39:58 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"diana"}
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE (users.username SIMILAR TO 'diana') LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users?username=diana" for ::1 at 2022-06-30 16:39:59 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"diana"}
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE (users.username SIMILAR TO 'diana') LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users?username=diana9" for ::1 at 2022-06-30 16:40:04 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"diana9"}
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE (users.username SIMILAR TO 'diana9') LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.username SIMILAR TO 'diana9')[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users?username=diana9" for ::1 at 2022-06-30 16:40:27 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"diana9"}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE (users.username LIKE '%diana9%') LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.username LIKE '%diana9%')[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 200 OK in 12ms (Views: 3.3ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users?username=dian" for ::1 at 2022-06-30 16:40:32 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"dian"}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE (users.username LIKE '%dian%') LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.username LIKE '%dian%')[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users?username=di" for ::1 at 2022-06-30 16:40:35 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"di"}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE (users.username LIKE '%di%') LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.username LIKE '%di%')[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users?username=a9" for ::1 at 2022-06-30 16:40:42 -0400
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"a9"}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE (users.username LIKE '%a9%') LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.username LIKE '%a9%')[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.6ms)
+
+

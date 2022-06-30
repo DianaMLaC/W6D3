@@ -19,4 +19,7 @@ Rails.application.routes.draw do
   #Routes (ArtworkShares)
   resources :artworkshares, only: [:index, :create, :destroy]
 
+  #Routes(Comments)
+  resources :comments, only: [:index, :create, :destroy]
+
 end

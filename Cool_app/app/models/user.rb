@@ -11,10 +11,17 @@ class User < ApplicationRecord
     #Associations
     has_many :artworks,
         class_name: :Artwork,
-        foreign_key: :artwork_id,
+        foreign_key: :artist_id,
         primary_key: :id
     
-    
+    has_many :artwork_shares,
+        class_name: :ArtworkShare,
+        foreign_key: :viewer_id,
+        primary_key: :id
+
+    has_many :shared_artworks,
+        through: :artwork_shares,
+        source: :artwork
     
 
     #Validations
